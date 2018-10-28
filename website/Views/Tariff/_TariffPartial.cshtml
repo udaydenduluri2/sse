@@ -1,0 +1,36 @@
+﻿@model ExternalServices.Tariff
+
+<style type="text/css">
+    
+</style>
+
+<div class="tariff_container">
+    <div class="tariff tariff__header">
+        <div class="tariff_info">
+            <div class="tariff_name">@Model.TariffName</div>
+            <h3 class="h2--like">@Model.TariffFriendlyName</h3>
+            <div class="tariff-names">
+                @foreach (var tariffTerm in Model.TariffTerms)
+                {
+                    <div class="tariff_name">@tariffTerm</div>
+                }
+            </div>
+            <div class="tariff-information">Gas and electricity information</div>
+        </div>
+        <div class="tariff_choose">
+            <div  class="tariff-cost">
+                <div class="tariff-total-header">Project Monthly cost:</div>
+                <div class="tariff-total-cost">£@Model.MonthlyTotal</div>
+                <div class="tariff-cost-summary">Gas £@Model.MonthlyGasCost Eletricity £@Model.MonthlyElectricCost</div>
+                <div class="tariff-year-cost">That's £@Model.TotalCost a year</div>
+                @if (Model.Discount != null)
+                {
+                    <div class="tariff-cost-summary">Including your @Model.Discount.DiscountValue% discount</div>
+                }
+            </div>
+            <p class="btn__container">
+                <a class="button" href="https://products.sse.co.uk/energy-signup/existing-customer">Sign up now</a>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿@model ExternalServices.TariffInfo
+@{
+    ViewBag.Title = "GetCustomerTariffs";
+}
+
+<style type="text/css">
+
+</style>
+
+<div class="panel bodyPanel">
+    <div class="header">
+        <h1>Choose a new energy tariff for @Model.CustomerName</h1>
+        <div class="headerp">
+            <p>The costs below are estimated usage we worked out from the answers you gave us from the property. We estimate you'll </p>
+            <p>use Gas = @Model.AnnualGasUsage KWh per year Electricity = @Model.AnnualGasUsage KWh per year.</p>
+        </div>
+    </div>
+    <div class="panel__inner">
+        <h3 class="heading-1">Choose your tariff</h3>
+        <div class="vat-header">
+            All below prices include VAT 5% and any applicable discounts
+        </div>
+        <div class="rich-text">
+            @foreach (var tariff in Model.Tariffs)
+            {
+                @Html.Partial("_TariffPartial", tariff)
+            }
+        </div>
+    </div>
+    <div class="panel__inner">
+        <h2 class="heading-1">What you need to know before you apply</h2>
+        <div style="text-align: center">
+            <details role="group">
+                <summary role="button" aria-controls="details-content-0" aria-expanded="false">
+                    Important information
+                </summary>
+                <div class="rich-text" id="details-content-0" aria-hidden="true" style="display: block;">
+                    <p>
+                        We rely on a mobile phone or wireless signal to get your smart meter readings. If these fail, your bills will be estimated.
+                    </p>
+                    <p>
+                        We’ll send your Welcome pack by email. This includes your confirmation of contract, tariff information, terms and conditions and cancellation form.
+                    </p>
+                    <p>
+                        If we're taking over the supply of energy from another supplier, you agree to your current supplier transferring the right for us to collect any debt you owe them (in the event we're obliged to).
+                    </p>
+                </div>
+            </details>
+        </div>
+    </div>
+</div>
+
+
+
+
+
